@@ -1,11 +1,16 @@
-package genetresume;
+package genet.resume;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import genet.resume.Person;
 
 @Entity
 public class Education {
@@ -18,6 +23,9 @@ public class Education {
 	private String university;
 	private LocalDateTime gradYear;
 	private Long id;
+	
+	@ManyToMany(mappedBy = "educations", fetch = FetchType.LAZY)
+	private Set<Person> people;
 	
 	public Long getEduId() {
 		return eduId;
@@ -48,6 +56,12 @@ public class Education {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Set<Person> getPeople() {
+		return people;
+	}
+	public void setPeople(Set<Person> people) {
+		this.people = people;
 	}
 	
 

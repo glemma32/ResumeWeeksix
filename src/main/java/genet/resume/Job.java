@@ -1,12 +1,16 @@
-package genetresume;
+package genet.resume;
 
 import java.time.LocalDateTime;
-
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import genet.resume.Person;
 
 @Entity
 public class Job {
@@ -17,10 +21,14 @@ public class Job {
 	
 	private String title;
 	private String company;
-	private LocalDateTime startDate;
+	private LocalDateTime startdate;
 	private LocalDateTime endDate;
-	private String duties;
+	private String duty;
 	private Long id;
+	
+	@ManyToMany(mappedBy = "jobs", fetch = FetchType.LAZY)
+	private Set<Person> people;
+	
 	public Long getJobId() {
 		return jobId;
 	}
@@ -39,11 +47,11 @@ public class Job {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public LocalDateTime getStartDate() {
-		return startDate;
+	public LocalDateTime getStartdate() {
+		return startdate;
 	}
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
+	public void setStartdate(LocalDateTime startdate) {
+		this.startdate = startdate;
 	}
 	public LocalDateTime getEndDate() {
 		return endDate;
@@ -51,17 +59,23 @@ public class Job {
 	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
-	public String getDuties() {
-		return duties;
+	public String getDuty() {
+		return duty;
 	}
-	public void setDuties(String duties) {
-		this.duties = duties;
+	public void setDuty(String duties) {
+		this.duty = duties;
 	}
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Set<Person> getPeople() {
+		return people;
+	}
+	public void setPeople(Set<Person> people) {
+		this.people = people;
 	}
 	
 	
