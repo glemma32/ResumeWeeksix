@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Result</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</head>
+	<body>
+	
+	
+		<p th:text="${per.firstname}+ ' ' +${per.lastname}"/>
+		<p th:text="${per.email}"/>
+	
+		
+		
+		<div th:each="eachedu:${edu}">
+		<p th:text='Education '/>
+		<p th:text="${eachedu.degree}+','"/>
+		<p th:text="${eachedu.university}+', '+${eachedu.gradYear}"/>
+		</div>
+		<b></b>
+		<b></b>
+		<div th:each="eachj:${j}">
+		
+		<p th:text='Experience '/>
+		<p th:text="${eachj.title}"/>
+		<p th:text="${eachj.company}+', '+${eachj.startdate}+'-'+${eachj.endDate}"/>
+		<p th:text="${eachj.duty}"/>
+	
+		</div>
+		<b></b>
+		<b></b>
+		<div th:each="eachskil:${skil}">
+		
+		<p th:text='Skills '/>
+		<p th:text="${eachskil.skillset}+', '+${eachskil.rating}"/>
+	
+		</div>
+	
+		
+	</body>
+</html>

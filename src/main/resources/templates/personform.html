@@ -34,13 +34,21 @@ Hello: <span sec:authentication="name">Bob</span>
             <label for="email">E-mail address</label>
             <input type="text" class="form-control" id="email" placeholder="E-mail" th:field="*{email}"/>
         </div>
-          <h2>Pager</h2>
-	                  
-	 	 <ul class="pager">
+          
+	    <div class="container">
+	    	<ul class="pager">
+  			<li><a href="/login" class="previous" role="button">previous</a></li>
+  			
+  			<li><input type="submit" class="btn btn-info" value="Save"/></li>
+  			<li><a href="/addeducation" class="next" role="button">next</a></li>
+  			</ul>
+		</div>            
+	 	<!-- <ul class="pager">
 		    <li class="previous"><a href="/login">Previous</a></li>
+		    <li class="button" value="submit" class="btn btn-default">Submit</li> 
 		    <li class="next"><a href="/addeducation">Next</a></li>
 	      </ul>  
-       <!-- <button type="submit" class="btn btn-default">Submit</button>  --> 
+        <button type="submit" class="btn btn-default">Submit</button>  --> 
     </form>
 </div><!-- /.container -->
 

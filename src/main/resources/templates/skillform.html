@@ -22,11 +22,25 @@ Hello: <span sec:authentication="name">Bob</span>
     <br />
     <br />
     <form action="#" th:action="@{/addskill}" th:object="${skill}" method="post">
+   <h2>Add skills</h2>
     <div class="form-group">
-        	<label for="skill">Area of experties</label>
-            <input type="text" class="form-control" id="skill" placeholder="skill" th:field="*{skill}"/>
-    </div>
-    <div class="dropdown">
+        	<label for="skillset">Skills</label>
+            <input type="text" class="form-control" id="skillset" placeholder="Skills" th:field="*{skillset}"/>
+        </div>
+    <p></p>
+    <p>How proficient are you</p>
+	<div class="radio">
+		<label><input type="radio" th:field="*{rating}" name="rating"  value="highly skilled"/>highly skilled</label>
+	</div>
+	<div class="radio">
+		<label><input type="radio" th:field="*{rating}" name="rating"  value="proficient"/>proficient</label>
+	</div>
+	<div class="radio">
+		<label><input type="radio" th:field="*{rating}" name="rating"  value="familiar"/>familiar</label>
+	</div>
+	 <input type="hidden" id="id" th:field="*{id}"></input>
+    <p></p>
+  <!--   <div class="dropdown">
   	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Rating
   	<span class="caret"></span></button>
   	<ul class="dropdown-menu">
@@ -34,9 +48,21 @@ Hello: <span sec:authentication="name">Bob</span>
     	<li><a href="#">proficient</a></li>
     	<li><a href="#">familiar</a></li>
   	</ul>
-	</div>
-                  
-	 	  <button type="submit" class="btn btn-default">Submit</button> 
+	</div> 
+			<ul class="pager">
+		    <li class="previous"><a href="/addjob">Previous</a></li>
+		    <li class="add"><a href="/addskill">Add</a></li>
+		    <li input type="submit" class="btn btn-info" value="Submit Button">Submit</li> 
+	      </ul> -->     
+	 <!--<div class="container">-->
+	 <ul class="pager">
+  		<li><a href="/addjob" class="previous" role="button">previous</a></li>
+  		<li><a href="/addeducation" class="add" role="button">Add</a></li> 
+  		<!-- <li><a href="/addskill" class="add" role="button">Add</a></li> -->
+  		<li><input type="submit" class="btn btn-info" value="Submit"/></li>
+  	</ul>
+	<!-- </div> -->
+	 	
        <!-- <button type="submit" class="btn btn-default">Submit</button>  --> 
     </form>
 </div><!-- /.container -->

@@ -1,15 +1,13 @@
 package genet.resume;
 
-import java.util.Set;
+
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-import genet.resume.Person;
+//import javax.persistence.ManyToMany;
 
 @Entity
 public class Skill {
@@ -18,11 +16,9 @@ public class Skill {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long skillId;
 	
-	private String skill;
+	private String skillset;
 	private String rating;
-	
-	@ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
-	private Set<Person> people;
+	private Long id;
 	
 	public Long getSkillId() {
 		return skillId;
@@ -30,11 +26,11 @@ public class Skill {
 	public void setSkillId(Long skillId) {
 		this.skillId = skillId;
 	}
-	public String getSkill() {
-		return skill;
+	public String getSkillset() {
+		return skillset;
 	}
-	public void setSkill(String skill) {
-		this.skill = skill;
+	public void setSkillset(String skillset) {
+		this.skillset = skillset;
 	}
 	public String getRating() {
 		return rating;
@@ -42,11 +38,11 @@ public class Skill {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	public Set<Person> getPeople() {
-		return people;
+	public Long getId() {
+		return id;
 	}
-	public void setPeople(Set<Person> people) {
-		this.people = people;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

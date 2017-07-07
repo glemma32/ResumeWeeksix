@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Result</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</head>
+	<body>
+	<form action="#" th:action="@{/search}" th:object="${person}" method="post">
+		<h6>Enter the first name of the person to search</h6>
+   		<p> <input type="text" th:field="*{firstname}" placeholder="firstname"></input></p>
+   		<button type="submit" class="btn btn-default">Submit</button>
+  	</form>
+		
+	</body>
+</html>

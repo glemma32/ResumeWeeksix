@@ -23,11 +23,11 @@ Hello: <span sec:authentication="name">Bob</span>
     <br />
     <form action="#" th:action="@{/addjob}" th:object="${job}" method="post">
         <div class="form-group">
-        	<label for="title">First name</label>
+        	<label for="title">Job title</label>
             <input type="text" class="form-control" id="title" placeholder="Position" th:field="*{title}"/>
         </div>
         <div class="form-group">
-            <label for="company">Last name</label>
+            <label for="company">Company</label>
             <input type="text" class="form-control" id="company" placeholder="Company" th:field="*{company}"/>
         </div>
         <div class="form-group">
@@ -41,14 +41,24 @@ Hello: <span sec:authentication="name">Bob</span>
 	     
 	     <div class="form-group">
   			<label for="duty">Duties:</label>
-  			<textarea class="form-control" rows="5" id="duty"></textarea>
-		</div>     
-	 	 <ul class="pager">
+  			<textarea class="form-control" rows="5" id="duty" th:field="*{duty}"></textarea>
+		</div>
+		 <input type="hidden" id="id" th:field="*{id}"></input>
+		<div class="container">
+			<ul class="pager">
+  			<li><a href="/addeducation" class="previous" role="button">previous</a></li>
+  			<li><a href="/addeducation" class="add" role="button">Add</a></li> 
+  			<li><input type="submit" class="btn btn-info" value="Save"/></li>
+  			<li><a href="/addskill" class="next" role="button">next</a></li>
+  			</ul>
+		</div>   
+	 	<!-- <ul class="pager">
 		    <li class="previous"><a href="/addeducation">Previous</a></li>
 		    <li class="add"><a href="/addjob">Add</a></li>
+		     <li class="button" value="submit" class="btn btn-default">Submit</li> 
 		    <li class="next"><a href="/addskill">Next</a></li>
 	      </ul>  
-       <!-- <button type="submit" class="btn btn-default">Submit</button>  --> 
+       <button type="submit" class="btn btn-default">Submit</button>  --> 
     </form>
 </div><!-- /.container -->
 <th:block th:replace="base :: footlinks"></th:block>
